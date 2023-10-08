@@ -1,7 +1,6 @@
 // Add imports above this line
-import { galleryItems } from './gallery-items';
+import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
@@ -29,10 +28,11 @@ function createGalleryItem(item) {
 
 function openLightbox(event) {
   event.preventDefault();
-  if (event.target.nodeName === 'A') {
+  if (event.target.nodeName === 'IMG') {
     const source = event.target.dataset.source;
     const description = event.target.alt;
-    const lightbox = new SimpleLightbox(`<img src="${source}" alt="${description}">`);
+    const lightbox = new SimpleLightbox(
+      `<img src="${source}" alt="${description}">`);
     lightbox.show();
   }
 }

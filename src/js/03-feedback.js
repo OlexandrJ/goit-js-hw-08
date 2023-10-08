@@ -23,14 +23,14 @@ function loadFormState() {
 
 function handleSubmit(event) {
   event.preventDefault();
-  localStorage.removeItem('feedback-form-state');
-  emailInput.value = '';
-  messageTextarea.value = '';
   const formData = {
     email: emailInput.value,
     message: messageTextarea.value,
   };
   console.log(formData);
+  localStorage.removeItem('feedback-form-state');
+  emailInput.value = '';
+  messageTextarea.value = '';
 }
 
 form.addEventListener('input', throttle(saveFormState, 500));
